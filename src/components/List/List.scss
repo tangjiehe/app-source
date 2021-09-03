@@ -1,0 +1,27 @@
+.component-list {
+  .list,
+  .list-item {
+    margin: 0;
+    padding: 0;
+  }
+
+  .list {
+    background: #eee;
+    box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%),
+      0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
+  }
+
+  .list-item {
+    list-style-type: none;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    &.active,
+    &:hover {
+      background: #ddd;
+    }
+    &:not(.active) {
+      cursor: pointer;
+    }
+  }
+}

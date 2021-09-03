@@ -1,0 +1,52 @@
+.component-grid {
+  border: 1px solid #eee;
+  border-radius: 5px;
+  padding: 10px;
+  width: max-content;
+  .grid {
+    display: table;
+    width: 100%;
+    .grid-cell {
+      display: table-cell;
+      padding: 10px 16px;
+      border-bottom: 1px solid #eee;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 200px;
+    }
+    .grid-header-row,
+    .grid-column-row {
+      display: table-row;
+      border-top: 1px solid black;
+    }
+    .grid-column-row {
+      display: table-row;
+      &:hover {
+        background: rgba(33, 150, 243, 0.1);
+      }
+    }
+  }
+  .pagination {
+    margin-top: 10px;
+    .action-item {
+      text-align: right;
+      user-select: none;
+      .curPage {
+        padding: 0;
+        vertical-align: text-top;
+        width: 15px;
+      }
+      .rowPerPageActn {
+        cursor: pointer;
+      }
+      .separator {
+        width: 1px;
+      }
+      .goPrevious,
+      .goNext {
+        cursor: pointer;
+      }
+    }
+  }
+}
