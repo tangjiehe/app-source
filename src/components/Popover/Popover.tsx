@@ -1,27 +1,25 @@
-
+import { useRefHook } from '../../hooks/useRefHook';
 import './Popover.scss';
 
 interface IProps {
     target: HTMLElement;
     children?: any;
+    unmount?: () => void;
+    placement?: 'top' | 'bottom' | 'left' | 'right'
 }
 
-export function Popover({ children, target }: IProps) {
-
-    const getTargetPosition = (target: HTMLElement) => {
-        const rect = target.getBoundingClientRect();
-        const left = rect.left, top = rect.top;
-        return {
-            positionX: left + window.pageXOffset,
-            positionY: top + window.pageYOffset + target.offsetHeight
-        }
-    };
-
-    const { positionX, positionY } = getTargetPosition(target);
+export function Popover({ children, target, unmount }: IProps) {
+    const [ref] = useRefHook(target);
 
     return (
-        <div className="component-popover" style={{ left: positionX, top: positionY }}>
-            {children}
-        </div>
+        <div
+            tabIndex={-1}
+            ref={ref}
+            className="component-popover"
+            onBlur={unmount}>
+            <div>
+                {children}
+            </div>
+        </ div>
     )
 }

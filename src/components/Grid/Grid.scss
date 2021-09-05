@@ -14,6 +14,26 @@
       overflow: hidden;
       text-overflow: ellipsis;
       max-width: 200px;
+      .grid-header {
+        margin: 0 auto;
+        width: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        .sort-container {
+          display: flex;
+          flex-direction: column;
+          .sort {
+            cursor: pointer;
+            line-height: 15px;
+            opacity: 0.3;
+            &:hover,
+            &.active {
+              opacity: 1;
+            }
+          }
+        }
+      }
     }
     .grid-header-row,
     .grid-column-row {
@@ -34,7 +54,7 @@
       user-select: none;
       .curPage {
         padding: 0;
-        vertical-align: text-top;
+        font-size: 15px;
         width: 15px;
       }
       .rowPerPageActn {
@@ -43,9 +63,11 @@
       .separator {
         width: 1px;
       }
-      .goPrevious,
-      .goNext {
+      .goTo {
         cursor: pointer;
+        &.disabled {
+          opacity: 0.3;
+        }
       }
     }
   }

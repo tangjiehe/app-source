@@ -1,12 +1,13 @@
 .component-popover {
   position: absolute;
   transform: translate(-50%, -50%) scale(0);
-  animation: show .25s ease forwards;
+  animation: show .05s ease forwards;
   z-index: 999;
+  outline: none;
 }
 
 @keyframes show {
   to {
-    transform: translate(-50%, 0) scale(1);
+    transform: translate(-50%, 0%) scale(1);
   }
 }
